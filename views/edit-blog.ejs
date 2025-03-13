@@ -1,0 +1,12 @@
+<h1>Chỉnh sửa bài viết</h1>
+<form action="/blogs/edit/<%= blog._id %>?_method=PUT" method="POST">
+    <div class="mb-3">
+        <label>Tiêu đề</label>
+        <input type="text" name="title" class="form-control" value="<%= blog.title %>" required>
+    </div>
+    <div class="mb-3">
+        <label>Nội dung</label>
+        <textarea name="content" class="form-control" required><%= blog.content %></textarea>
+    </div>
+    <button class="btn btn-primary">Cập nhật</button>
+</form>
