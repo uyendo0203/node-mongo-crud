@@ -27,8 +27,10 @@ const blogRoutes = require('./routes/blogRoutes');
 app.use('/blogs', blogRoutes);
 
 // Trang chủ
-app.get('/', (req, res) => res.redirect('/blogs'));
-
+app.get('/', (req, res) => {
+    res.render('index', { title: 'Home' });
+  });
+  
 // Chạy server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server chạy tại http://localhost:${PORT}`));
