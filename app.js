@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const expressLayouts = require('express-ejs-layouts');
+const path = require('path');
 
 const app = express();
 
@@ -15,7 +16,7 @@ mongoose.connect(process.env.MONGO_URI, {
   .catch(err => console.error("❌ Lỗi kết nối MongoDB:", err));
 
 // Cấu hình middleware
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(expressLayouts);
